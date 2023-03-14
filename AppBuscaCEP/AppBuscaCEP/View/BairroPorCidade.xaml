@@ -4,9 +4,47 @@
              x:Class="AppBuscaCEP.View.BairroPorCidade">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal">
+                <SearchBar x:Name="txt_cidade"
+                           Placeholder="Qual é a sua Cidade?"/>
+                <Button Text="Buscar" Clicked="Button_Clicked"/>
+            </StackLayout>
+
+            <ActivityIndicator x:Name="carregando" IsRunning="False" />
+
+            <ListView x:Name="lst_ceps">
+                <ListView.Header>
+                    <Grid ColumnDefinitions="Auto, *"
+                          RowDefinitions="Auto">
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="CEP" />
+                        <Label Grid.Row="0" Grid.Column="1"
+                               Text="Bairro" />
+                        <Label Grid.Row="0" Grid.Column="2"
+                               Text="Cidade" />
+                        <Label Grid.Row="0" Grid.Column="3"
+                               Text="UF" />
+                    </Grid>
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="Auto, *, *, Auto"
+                                  RowDefinitions="Auto">
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Text="{Binding CEP}" />
+                                <Label Grid.Row="0" Grid.Column="1"
+                                       Text="{Binding descricao_bairro}" />
+                                <Label Grid.Row="0" Grid.Column="2"
+                                       Text="{Binding descricao_cidade}" />
+                                <Label Grid.Row="0" Grid.Column="3"
+                                       Text="{Binding UF}"/> 
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

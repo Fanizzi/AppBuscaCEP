@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppBuscaCEP.Model;
+using AppBuscaCEP.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,26 @@ namespace AppBuscaCEP.View
         public BairroPorCidade()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                carregando.IsRunning = true;
+
+                List<Bairro> arr_bairros = await DataService.GetBairrosByIdCidade();
+
+                lst_bairros.ItemsSource = arr_bairros;
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ops", ex.Message, "OK");
+            }
+            finally
+            {
+                carregando.IsRunning = false;
+            }
         }
     }
 }
