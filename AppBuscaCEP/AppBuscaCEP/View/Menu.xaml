@@ -16,7 +16,7 @@
 
             <Button Grid.Row="1" Grid.Column="1"
                    Grid.ColumnSpan="2"
-                   Text="Buscar Cidades" />
+                   Text="Buscar Cidades" Clicked="Button_Clicked_1"/>
 
             <Button Grid.Row="2" Grid.Column="0"
                    Grid.ColumnSpan="2"

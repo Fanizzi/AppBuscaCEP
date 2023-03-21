@@ -5,42 +5,31 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal">
-                <SearchBar x:Name="txt_cidade"
-                           Placeholder="Qual é a sua Cidade?"/>
-                <Button Text="Buscar" Clicked="Button_Clicked"/>
+                <Picker x:Name="pck_estado"
+                        SelectedIndexChanged="pck_estado_SelectedIndexChanged"
+                        Title="Selecione o Estado:">
+                    <Picker.Items>
+                        <x:String>SP</x:String>
+                        <x:String>MG</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Picker x:Name="pck_cidade"
+                        SelectedIndexChanged="pck_cidade_SelectedIndexChanged"
+                        ItemDisplayBinding="{Binding descricao}"
+                        Title="Selecione a Cidade">
+                </Picker>
+
             </StackLayout>
-
-            <ActivityIndicator x:Name="carregando" IsRunning="False" />
-
-            <ListView x:Name="lst_ceps">
+            <ListView x:Name="lst_bairros">
                 <ListView.Header>
-                    <Grid ColumnDefinitions="Auto, *"
-                          RowDefinitions="Auto">
-                        <Label Grid.Row="0" Grid.Column="0"
-                               Text="CEP" />
-                        <Label Grid.Row="0" Grid.Column="1"
-                               Text="Bairro" />
-                        <Label Grid.Row="0" Grid.Column="2"
-                               Text="Cidade" />
-                        <Label Grid.Row="0" Grid.Column="3"
-                               Text="UF" />
-                    </Grid>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Bairros" />
                 </ListView.Header>
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid ColumnDefinitions="Auto, *, *, Auto"
-                                  RowDefinitions="Auto">
-                                <Label Grid.Row="0" Grid.Column="0"
-                                       Text="{Binding CEP}" />
-                                <Label Grid.Row="0" Grid.Column="1"
-                                       Text="{Binding descricao_bairro}" />
-                                <Label Grid.Row="0" Grid.Column="2"
-                                       Text="{Binding descricao_cidade}" />
-                                <Label Grid.Row="0" Grid.Column="3"
-                                       Text="{Binding UF}"/> 
-                            </Grid>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding descricao_bairro}"/>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
