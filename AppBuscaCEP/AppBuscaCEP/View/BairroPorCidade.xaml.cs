@@ -28,6 +28,8 @@ namespace AppBuscaCEP.View
         {
             try
             {
+                carregando.IsRunning = true;
+
                 Picker disparador = sender as Picker;
 
                 string estado_selecionado = disparador.SelectedItem as string;
@@ -42,12 +44,18 @@ namespace AppBuscaCEP.View
             {
                 await DisplayAlert("Ops", ex.Message, "OK");
             }
+            finally
+            {
+                carregando.IsRunning = false;
+            }
         }
 
         private async void pck_cidade_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                carregando.IsRunning = true;
+
                 Picker disparador = sender as Picker;
 
                 Cidade cidade_selecionada = disparador.SelectedItem as Cidade;
@@ -61,6 +69,10 @@ namespace AppBuscaCEP.View
             catch (Exception ex)
             {
                 await DisplayAlert("Ops", ex.Message, "OK");
+            }
+            finally
+            {
+                carregando.IsRunning = false;
             }
         }
     }

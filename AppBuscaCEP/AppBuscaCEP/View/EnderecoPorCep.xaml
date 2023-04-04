@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppBuscaCEP.View.EnderecoPorCep"
+             Title="Endereço por Cep">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+
+                <SearchBar x:Name="txtCep"
+                           Placeholder="Digite o seu CEP"
+                           />
+                <Button Text="Buscar" Clicked="Button_Clicked"/>
+            </StackLayout>
+
+            <ActivityIndicator x:Name="carregando" IsRunning="False"/>
+
+            <ListView x:Name="lst_endereco">
+                <ListView.Header>
+                    <Grid ColumnDefinitions="Auto, Auto"
+                          RowDefinitions="Auto"
+                          >
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="Logradouro: "/>
+
+                        <Label Grid.Row="0" Grid.Column="1"
+                               Text="Cidade: "/>
+
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="*, *, *, *"
+                                  RowDefinitions="Auto">
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding descricao}"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding descricao_cidade}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

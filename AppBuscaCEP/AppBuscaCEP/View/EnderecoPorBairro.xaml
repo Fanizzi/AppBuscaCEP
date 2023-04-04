@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppBuscaCEP.View.EnderecoPorBairro"
+             Title="Endereço por Bairro">
+    <ContentPage.Content>
+        <AbsoluteLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <StackLayout>
+                    <Picker x:Name="pck_estado"
+                            SelectedIndexChanged="pck_estado_SelectedIndexChanged"
+                            Title="Selecione o estado"
+                            >
+                        <Picker.Items>
+                            <x:String>SP</x:String>
+                            <x:String>MG</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Picker x:Name="pck_cidade"
+                            SelectedIndexChanged="pck_cidade_SelectedIndexChanged"
+                            ItemDisplayBinding="{Binding descricao}"
+                            Title="Selecione a cidade">
+                    </Picker>
+                    <Picker
+                        x:Name="pck_bairro"
+                        SelectedIndexChanged="pck_bairro_SelectedIndexChanged"
+                        ItemDisplayBinding="{Binding descricao_bairro}"
+                        Title="Selecione o Bairro">
+                    </Picker>
+                </StackLayout>
+
+                <ActivityIndicator x:Name="carregando" IsRunning="False"/>
+                <ListView x:Name="lst_endereco">
+                    <ListView.Header>
+                        <StackLayout>
+                            <Label Text="Endereço: "/>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding descricao}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
