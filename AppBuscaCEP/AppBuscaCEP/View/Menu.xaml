@@ -10,23 +10,30 @@
             <Label Grid.Row="0" Grid.Column="0"
                    Grid.ColumnSpan="2"
                    Text="Api Busca Cep"
-                   TextTransform="Uppercase"
+                   TextTransform="Uppercase" TextColor="Black"
+                   FontAttributes="Bold" FontSize="Large"
                    HorizontalOptions="Center" VerticalOptions="Center"/>
 
             <Button Grid.Row="1" Grid.Column="0"
-                   Text="Buscar Cep por Logradouro" Clicked="Button_Clicked"/>
+                    Text="Buscar Cep por Logradouro" 
+                    Margin="10"  CornerRadius="20" Clicked="Button_Clicked"/>
 
             <Button Grid.Row="1" Grid.Column="1"
-                   Text="Buscar Cidades por Estado" Clicked="Button_Clicked_1"/>
+                   Text="Buscar Cidades por Estado" 
+                   Margin="10"  CornerRadius="20" Clicked="Button_Clicked_1"/>
 
             <Button Grid.Row="2" Grid.Column="0"
-                   Text="Buscar Ruas de Bairros" Clicked="Button_Clicked_2"/>
+                   Text="Buscar Ruas de Bairros" 
+                   Margin="10"  CornerRadius="20" Clicked="Button_Clicked_2"/>
 
             <Button Grid.Row="2" Grid.Column="1"
-                   Text="Buscar Endereço por CEP" Clicked="Button_Clicked_3"/>
+                   Text="Buscar Endereço por CEP" 
+                   Margin="10"  CornerRadius="20" Clicked="Button_Clicked_3"/>
 
-            <Button Grid.Row="3" Grid.Column="1" 
-                    Text="Buscar Bairros por Cidade" Clicked="Button_Clicked_4"/>
+            <Button Grid.Row="3" Grid.Column="0" 
+                    Text="Buscar Bairros por Cidade" 
+                    Margin="10"  CornerRadius="20" 
+                    Grid.ColumnSpan="2" Clicked="Button_Clicked_4"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
